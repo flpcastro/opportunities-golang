@@ -6,14 +6,17 @@ import (
 )
 
 func initializeRoutes(router *gin.Engine) {
+	// Init Handler
+	handler.InitHandler()
+
 	v1 := router.Group("/api/v1")
 
 	{
-		v1.GET("/openings", handler.ListOpportunitiesHandler)
-		v1.GET("/opening", handler.ShowOpportunityHandler)
-		v1.POST("/opening", handler.CreateOpportunityHandler)
-		v1.PUT("/opening", handler.UpdateOpportunityHandler)
-		v1.DELETE("/opening", handler.DeleteOpportunityHandler)
+		v1.GET("/opportunities", handler.ListOpportunitiesHandler)
+		v1.GET("/opportunity", handler.ShowOpportunityHandler)
+		v1.POST("/opportunity", handler.CreateOpportunityHandler)
+		v1.PUT("/opportunity", handler.UpdateOpportunityHandler)
+		v1.DELETE("/opportunity", handler.DeleteOpportunityHandler)
 	}
 
 }
