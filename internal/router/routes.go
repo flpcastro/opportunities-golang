@@ -4,7 +4,7 @@ import (
 	docs "github.com/flpcastro/opportunities-api-go/api"
 	"github.com/flpcastro/opportunities-api-go/internal/handler"
 	"github.com/gin-gonic/gin"
-	swaggerfiles "github.com/swaggo/files"
+	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
@@ -16,7 +16,6 @@ func initializeRoutes(router *gin.Engine) {
 	docs.SwaggerInfo.BasePath = basePath
 
 	v1 := router.Group(basePath)
-
 	{
 		v1.GET("/opportunities", handler.ListOpportunitiesHandler)
 		v1.GET("/opportunity", handler.ShowOpportunityHandler)
@@ -26,5 +25,5 @@ func initializeRoutes(router *gin.Engine) {
 	}
 
 	// Init Swagger
-	router.GET("/docs/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
+	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 }
